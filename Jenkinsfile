@@ -1,5 +1,8 @@
 pipeline {
 	agent any
+  tools {
+    nodejs 'NODEJS'
+  }
 	parameters{
 		string defaultValue: 'develop', description: 'Source Branch', name: 'BRANCH_NM'
 	}
