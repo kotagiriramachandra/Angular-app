@@ -8,8 +8,8 @@ pipeline {
 			steps {
 				echo " Before build for branch: ${params.BRANCH_NM}"
         checkout scmGit(branches: [[name: "*/${params.BRANCH_NM}"]], extensions: [], userRemoteConfigs: [[credentialsId: 'git-cred', name: 'origin', url: 'https://github.com/kotagiriramachandra/Angular-app.git']])
-				sh 'npm install'
-				sh 'ng build -prod'
+				bat 'npm install'
+				bat 'ng build -prod'
         echo " After build for branch: ${params.BRANCH_NM}"
 			}
 		}
