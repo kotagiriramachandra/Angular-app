@@ -3,7 +3,7 @@ pipeline {
 	parameters{
 		string defaultValue: 'develop', description: 'Source Branch', name: 'BRANCG_NM'
 	}
-  stages {
+	stages {
 		stage ('build') {
 			steps {
 				echo " Before build for branch: ${params.BRANCH_NM}"
@@ -13,16 +13,16 @@ pipeline {
         echo " After build for branch: ${params.BRANCH_NM}"
 			}
 		}
-    post {
-        always {
-            echo 'Build process initiated and'
-        }
-        success {
-            echo 'build process completed successfully'
-        }
-        failure {
-            echo 'build process failed'
-        }
+	}  
+  post {
+    always {
+      echo 'Build process initiated and'
     }
-  }  
+    success {
+      echo 'build process completed successfully'
+    }
+    failure {
+      echo 'build process failed'
+    }
+  }
 }
